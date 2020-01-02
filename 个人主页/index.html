@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的学习记录</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .anim-fade-in-ready {
+            opacity: 0;
+        }
+        
+        .anim-fade-in {
+            animation: fadeIn 1500ms forwards;
+        }
+        
+        @keyframes scaleBig {
+            from {
+                transform: scale(1, 1);
+            }
+            to {
+                transform: scale(1.1, 1.1);
+            }
+        }
+        
+        .anim-scale-big {
+            animation: scaleBig 500ms forwards;
+        }
+        
+        .big-title,
+        .desc {
+            opacity: 0;
+        }
+        
+        .shadow {
+            box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        div.item:hover {
+            animation: scaleBig 500ms forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="big-title">我的学习记录</h1>
+            <p class="desc">从2017年10月开始至今...</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-4 item anim-fade-in-ready">
+                <div class="thumbnail shadow">
+                    <div class="caption">
+                        <h3>2017年</h3>
+                        <p>开始建立技术栈</p>
+                        <p>在社团积累丰富的PHP建站经验</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 item anim-fade-in-ready">
+                <div class="thumbnail shadow">
+                    <div class="caption">
+                        <h3>2018年</h3>
+                        <p>利用在社团学到的技术</p>
+                        <p>完成了第一个小程序</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 item anim-fade-in-ready">
+                <div class="thumbnail shadow">
+                    <div class="caption">
+                        <h3>2019年</h3>
+                        <p>加入学校自媒体</p>
+                        <p>参与众多线上活动的设计和实现</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 item anim-fade-in-ready">
+                <div class="thumbnail shadow">
+                    <div class="caption">
+                        <h3>2019年末</h3>
+                        <p>在公司实习</p>
+                        <p>认识了众多技术大牛</p>
+                        <p>开阔了视野</p>
+                        <p>拓宽技术栈方向</p>
+                        <p>也有了一个遗憾...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 item anim-fade-in-ready">
+                <div class="thumbnail shadow">
+                    <div class="caption">
+                        <h3>2020年</h3>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 item anim-fade-in-ready">
+                <div class="thumbnail shadow">
+                    <div class="caption">
+                        <h3>2021年</h3>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                        <p>...&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center">
+        <h4>
+            <a href="http://beian.miit.gov.cn" target="_blank">粤ICP备18033587号</a>
+            <br> &nbsp;©&nbsp;<span id="year">2019</span>&nbsp;<a href="http://gitee.com/makia98" target="_blank">Makia98</a>
+        </h4>
+    </footer>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script>
+        $(function() {
+            var date = new Date();
+            var year = date.getFullYear();
+            $("#year").text(year);
+            $(".big-title").each(function(idx, el) {
+                $(el).addClass('anim-fade-in');
+                setTimeout(function() {
+                    $('.desc').each(function(idx, el) {
+                        $(el).addClass('anim-fade-in');
+                    });
+                }, 500);
+            });
+            /***动画***/
+            $(".item").each(function(idx, el) {
+                setTimeout(function() {
+                    $(el).addClass('anim-fade-in');
+                    $(el).removeClass('anim-fade-in-ready');
+                }, idx * 100 + 1000);
+            });
+            setTimeout(function() {
+                $(".item").each(function(idx, el) {
+                    $(el).removeClass('anim-fade-in');
+                });
+            }, 2000);
+            /***动画end***/
+        })
+    </script>
+    <script>
+    </script>
+
+</body>
+
+</html>
